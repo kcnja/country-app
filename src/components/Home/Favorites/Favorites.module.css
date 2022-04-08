@@ -1,0 +1,23 @@
+.empty {
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  padding: 10px;
+}
+
+.empty h3 {
+  text-align: center;
+}
+
+.containergrid {
+  margin: auto auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-evenly;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
