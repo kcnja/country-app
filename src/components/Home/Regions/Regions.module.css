@@ -70,3 +70,14 @@
 .empty h3{
   text-align: center;
 }
+
+@media (max-height: 650px) {
+  .empty lord-icon{
+    display: none;
+  }
+
+  .empty {
+    position:relative;
+    left: 20%;
+  }
+}

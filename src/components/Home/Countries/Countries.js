@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { loadAnimation } from "lottie-web";
 import { defineLordIconElement } from "lord-icon-element";
 import classes from "./Countries.module.css";
-import CountryFull from "./CountryFull";
+import CountryFull from "./CountryFull/CountryFull";
 
 const ModalOverlay = (props) => {
   defineLordIconElement(loadAnimation);

@@ -1,10 +1,10 @@
 import { Fragment, useState } from "react";
 import { loadAnimation } from "lottie-web";
 import { defineLordIconElement } from "lord-icon-element";
+import ErrorModal from "./ErrorModal/ErrorModal";
 import classes from "./LoginForm.module.css";
 
 const LoginForm = (props) => {
-
   defineLordIconElement(loadAnimation);
   const [userEmail, setUserEmail] = useState(" ");
   const [userPassword, setUserPassword] = useState(" ");
@@ -19,7 +19,8 @@ const LoginForm = (props) => {
       setLoginIsValid(true);
     } else if (
       (userEmail.includes("@") || userPassword.trim().length > 6) &&
-      (userPassword === password && userEmail === mail)
+      userPassword === password &&
+      userEmail === mail
     ) {
       setLoginIsValid(false);
       props.onLogin(name);
@@ -28,6 +29,9 @@ const LoginForm = (props) => {
       setLoginIsValid(true);
     }
   };
+  const closeModal = () => {
+    setLoginIsValid(false);
+  }
 
   return (
     <Fragment>
@@ -76,7 +80,7 @@ const LoginForm = (props) => {
               Create A New Account
             </button>
           </div>
-          {loginIsValid && <alert> Uh-Oh!</alert>}
+          {loginIsValid && <ErrorModal onClose={closeModal} />}
         </form>
       </section>
     </Fragment>

@@ -1,0 +1,56 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background: #000000bf;
+}
+
+.modal {
+  position: fixed;
+  top: 30vh;
+  left: 10%;
+  width: 80%;
+  z-index: 100;
+  overflow: hidden;
+  background-color: #eee8e8;
+  box-shadow: 5px 5px 10px #979595b7;
+  border-radius: 10px;
+}
+
+.title {
+  width: 100%;
+  background: #481620;
+  padding: 1rem;
+  margin: 0;
+  color: white;
+}
+
+.alert { 
+  font-size: 7rem;
+}
+
+.actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actions button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .modal {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
+}
+
+.info_div {
+  font-size: 20px;
+}
+

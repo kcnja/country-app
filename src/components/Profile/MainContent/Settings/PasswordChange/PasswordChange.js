@@ -3,6 +3,7 @@ import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey } from "@fortawesome/fontawesome-free-solid";
+import ErrorModal from "../../../../Auth/ErrorModal/ErrorModal";
 
 const PasswordChange = (props) => {
   const [userNewPassword, setUserNewPassword] = useState(" ");
@@ -33,6 +34,9 @@ const PasswordChange = (props) => {
       localStorage.removeItem("auth");
       return navigate("/");
     }
+  };
+  const closeModal = () => {console.log("close")
+    setErrorFlag(false);
   };
   return (
     <Fragment>
@@ -66,7 +70,7 @@ const PasswordChange = (props) => {
             <button type="submit">Change Password</button>
           </div>
         </form>
-        {errorFlag && <alert> Uh-Oh!</alert>}
+        {errorFlag && <ErrorModal onClose={closeModal} />}
       </section>
     </Fragment>
   );

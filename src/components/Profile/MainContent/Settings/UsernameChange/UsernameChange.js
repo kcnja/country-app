@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import classes from "./UsernameChange.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/fontawesome-free-solid";
+import ErrorModal from "../../../../Auth/ErrorModal/ErrorModal";
 
 const UsernameChange = () => {
   const [userNewName, setUserNewName] = useState(" ");
@@ -12,17 +13,20 @@ const UsernameChange = () => {
   console.log(userNewName, userName);
 
   const loginHandler = (event) => {
-
     event.preventDefault();
     let userOldName = localStorage.getItem("userName").replace(/"/g, "");
-    
+
     if (!(userOldName === userName)) {
       setErrorFlag(true);
-    } else if ((userName === userOldName) &&( userNewName.includes("@"))) {
+    } else if (userName === userOldName && userNewName.includes("@")) {
       setErrorFlag(false);
       localStorage.setItem("userName", JSON.stringify(userNewName));
     }
   };
+
+  const closeModal = () => {
+    setErrorFlag(false);
+  }
   return (
     <Fragment>
       <section className={classes.auth}>
@@ -55,7 +59,7 @@ const UsernameChange = () => {
             <button type="submit">Change Username</button>
           </div>
         </form>
-        {errorFlag && <alert> Uh-Oh!</alert>}
+        {errorFlag && <ErrorModal onClose={closeModal} />}
       </section>
     </Fragment>
   );
